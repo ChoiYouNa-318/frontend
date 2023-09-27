@@ -10,7 +10,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="p-4">
+<body class="p-4 bg-gray-100">
 
   <!-- <h1 class="text-4xl font-semibold my-4">First Project</h1>
 
@@ -99,9 +99,9 @@
     </ul>
 
       <!-- NAVBAR2 -->
-      <nav class="fixed top-25 left-0 w-screen h-60 bg-white px-4 hidden lg:block z-30">
+      <!-- <nav class="fixed top-25 left-0 w-screen h-60 bg-white px-4 hidden lg:block z-30">
 
-      </nav>
+      </nav> -->
   </nav>
 </header>
   <!-- SIDEBAR -->
@@ -149,10 +149,76 @@
   </nav>
 
 <!-- MAIN -->
-  <main class="">
-    <div>
+  <main class="mt-12 max-w-screen-2xl px-4 2xl:ml-40 lg:mt-24">  
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
 
+      <section class="h-auto">
+        <div class="borderborder-black mb-2 bg-white hidden 2xl:block">
+          <div class="p-1 border-b">학교소개</div>
+            <img class="w-24" src="./img/Timon.webp" alt="">
+        </div>
+
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">CAU News Today</div>
+          내용
+        </div>
+
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">학사일정</div>
+          내용
+        </div> 
+
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">식단표</div>
+          내용
+        </div> 
+      </section>
+
+      <section class="h-auto max-xl:order-first">
+        <div class="border mb-2">
+          <img src="./img/imageView.avif" alt="">
+        </div>
+
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">공지사항</div>
+          <div class="p-1 border-b">
+            <button>포탈 공지</button>
+            <button>학칙개정 공고</button>
+          </div>
+        </div>
+
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">입시정보</div>
+          <div class="p-1 border-b">
+            <button>공지사항</button>
+          </div>
+        </div>
+
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">교내 전화번호
+            <button class="px-2">서울</button>
+            <button class="px-2">다빈치</button>
+          </div>
+          내용
+        </div> 
+      </section>
+
+      <section class="h-auto">
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">주요 서비스</div>
+          내용
+        </div>
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">주요 기관</div>
+          내용
+        </div>
+        <div class="border mb-2 bg-white">
+          <div class="p-1 border-b">CAU Notice</div>
+          내용
+        </div>
+      </section>
     </div>
+
   </main>
   <!-- script -->
   <script src="./js/script.js"></script>
