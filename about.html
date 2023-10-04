@@ -24,7 +24,7 @@
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-screen bg-gradient-to-r from-cyan-950 to-teal-600" >
-  <nav class=" z-10 lg:hidden">
+  <nav class="z-10 lg:hidden">
     <div class="flex items-center h-12">
       <button id ="openBtn" class="px-4 text-xl text-white">
         &#9776;
@@ -67,31 +67,31 @@
         src="./img/cau.logo.ko.png" alt="">
       </li>
       <li class="inline-block w-[90px]">
-        <a href="#" class="text-sm block p-4 text-white opacity-70 font-semibold
+        <a href="#" id="nav_1" class="text-sm block p-4 text-white opacity-70 font-semibold
         hover:bg-white hover:text-cyan-900 hover:opacity-100">
           정보마당
         </a>
       </li>
       <li class="inline-block w-[90px]">
-        <a href="#" class="text-sm block p-4 text-white opacity-70 font-semibold
+        <a href="#" id="nav_2" class="text-sm block p-4 text-white opacity-70 font-semibold
         hover:bg-white hover:text-cyan-900 hover:opacity-100">
           학사마당
         </a>
       </li>
       <li class="inline-block w-[102px]">
-        <a href="#" class="text-sm block p-4 text-white opacity-70 font-semibold
+        <a href="#" id="nav_3" class="text-sm block p-4 text-white opacity-70 font-semibold
         hover:bg-white hover:text-cyan-900 hover:opacity-100">
           e-상담센터
         </a>
       </li>
       <li class="inline-block w-[102px]">
-        <a href="#" class="text-sm block p-4 text-white opacity-70 font-semibold
+        <a href="#" id="nav_4" class="text-sm block p-4 text-white opacity-70 font-semibold
         hover:bg-white hover:text-cyan-900 hover:opacity-100">
           학부모마당
         </a>
       </li>
       <li class="inline-block w-[102px]">
-        <a href="#" class="text-sm block p-4 text-white opacity-70 font-semibold
+        <a href="#" id="nav_5" class="text-sm block p-4 text-white opacity-70 font-semibold
         hover:bg-white hover:text-cyan-900 hover:opacity-100">
           주요사이트
         </a>
@@ -99,9 +99,45 @@
     </ul>
 
       <!-- NAVBAR2 -->
-      <!-- <nav class="fixed top-25 left-0 w-screen h-60 bg-white px-4 hidden lg:block z-30">
+      <nav id="navbar_1" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 z-30">
+        <img class="inline-block w-40 m-4 border-r-2" src=".\img\cau100th.png" alt="">
+        <div class="inline-block w-44">
+          <ul>
+            <li>
+               <p class="text-xs font-semibold my-4">공지사항</p>
+            </li>
+            <li>
+              <a class="text-xs w-44 hover:bg-gray-100 hover:underline" href="#">포털공지</a>
+            </li>
+            <li>
+              <a class="text-xs hover:bg-gray-100 hover:underline" href="#">학칙개정공고</a>
+            </li>
+            <li>
+              <a class="text-xs hover:bg-gray-100 hover:underline" href="#">캠퍼스맵</a>
+            </li>
+            <li>
+              <a class="text-xs hover:bg-gray-100 hover:underline" href="#">강의시간표조회</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <nav id="navbar_2" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
+        <img class="inline-block border-r-2" src=".\img\cau100th.png" alt="">
+        <div class="inline-block">학사마당</div>
+      </nav>
+      <nav id="navbar_3" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
+        <img class="inline-block border-r-2" src=".\img\cau100th.png" alt="">
+        <div class="inline-block">e-상담센터</div>
+      </nav>
+      <nav id="navbar_4" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
+        <img class="inline-block border-r-2" src=".\img\cau100th.png" alt="">
+        <div class="inline-block">학부모마당</div>
+      </nav>
+      <nav id="navbar_5" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
+        <img class="inline-block border-r-2" src=".\img\cau100th.png" alt="">
+        <div class="inline-block">주요사이트</div>
+      </nav>
 
-      </nav> -->
   </nav>
 </header>
   <!-- SIDEBAR -->
@@ -150,13 +186,40 @@
 
 <!-- MAIN -->
   <main class="mt-12 max-w-screen-2xl px-4 2xl:ml-40 lg:mt-24">  
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
-      <section class="h-auto">
-        <div class="borderborder-black mb-2 bg-white hidden 2xl:block">
+      <section class="h-auto max-w-lg">
+        <div class="border mb-2 bg-white m-0 hidden">
+          <!-- xl:block -> 2xl:block hidden -->
           <div class="p-1 border-b">학교소개</div>
-            <img class="w-24" src="./img/Timon.webp" alt="">
+          <div class="kind_wrap flex border border-black m-0 pl-2 relative">
+            <div class="kind_slider relative ml-3 p-0 my-4 border w-full overflow-hidden">
+              <ul class="slider">
+                  <li class="float-left flex w-[555px]">
+                    <div class="flex">
+                      <img class="w-36" src="./img/imageView1.avif" alt="">
+                      <img class="px-4 w-36" src="./img/sub_brand_img4.jpg" alt="">
+                    </div>
+                  </li>
+                  <li class="float-left flex w-[555px] bg-pink-300"><div>2</div></li>
+                  <li class="float-left flex w-[555px] bg-yellow-300"><div>3</div></li>
+                  <li class="float-left flex w-[555px] bg-gray-300"><div>4</div></li>
+                  <li class="float-left flex w-[555px] bg-green-300"><div>5</div></li>
+              </ul>
+            </div>
+            <div class="arrow text-2xl hover:bg-gray-200 p-1 my-4">
+                <a href="" class="prev absolute left-0 hover:bg-gray-200 p-1">&#10094;</a>
+                <a href="" class="next">&#10095;</a>
+            </div>
+          </div>
+            <!-- </div>
+            <div class="arrow">
+                <a href="" class="prev absolute left-0">&#10094;</a>
+                <a href="" class="next absolute right-0">&#10095;</a>
+            </div>
+          </div> -->
         </div>
+
 
         <div class="border mb-2 bg-white">
           <div class="p-1 border-b">CAU News Today</div>
@@ -174,7 +237,7 @@
         </div> 
       </section>
 
-      <section class="h-auto max-xl:order-first">
+      <section class="h-auto max-w-lg max-xl:order-first">
         <div class="border mb-2">
           <img src="./img/imageView.avif" alt="">
         </div>
@@ -203,7 +266,7 @@
         </div> 
       </section>
 
-      <section class="h-auto">
+      <section class="h-auto max-w-lg">
         <div class="border mb-2 bg-white">
           <div class="p-1 border-b">주요 서비스</div>
           내용
