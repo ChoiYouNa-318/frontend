@@ -12,6 +12,7 @@ closeBtn.addEventListener('click', function () {
 //네비게이션 바
 //정보마당
 var nav_1 = document.getElementById('nav_1');
+var navbar_1 = document.getElementById('navbar_1');
 
 nav_1.addEventListener('mouseover', function (){
   navbar_1.classList.remove('hidden');
