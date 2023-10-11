@@ -1,147 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <!-- tailwindcss CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  
+ <h1>생략</h1>
 
-    <style>
-        * {
-          margin:0; 
-          padding:0;
-        }
+  <p class="ellipis">
+   첫 번째 생략하는 문장입니다 우오아오앙
+  </p>
 
-        li {
-          list-style: none;
-        }
+  <p class="ellipis">
+    두 번째 생략하는 문장입니다 우오나아아어
+  </p>
 
-        .kind_wrap {
-          border:2px solid black; 
-          width:400px; 
-          height: 200px;
-          /* max-width:800px; */
-          margin:0 auto; 
-          position: relative;
-        }
+  <script>
+    var ellipis = document.getElementsByClassName("ellipis");
 
-        .kind_wrap > .kind_slider {
-          overflow: hidden;
-        }
+    for(var i=0; i<ellipis.length; i++){
+      console.log(ellipis[i]);
+      var content = ellipis[i].textContent;
+      console.log(content);
+      ellipis[i].textContent = content.substring(0, 20) + "...";
+    }
 
-        .kind_wrap > .kind_slider .slider { 
-          position: relative; 
-          transition: 0.5s;
-        }
+  </script>
+ 
 
-        .kind_wrap > .kind_slider .slider li {
-          float:left;
-          width: 400px;
-          height: 200px;
-        }
+<h1>슬라이더</h1>
+    <div class="relative mx-[200px] w-[50%] overflow-hidden">
+    
+      <div id="container" class="flex w-[300%]">
+        <div class="image flex w-full h-[200px] justify-center bg-blue-300">1</div>
+        <div class="image flex w-full h-[200px] justify-center bg-pink-300">2</div>
+        <div class="image flex w-full h-[200px] justify-center bg-yellow-300">3</div>
+      </div>
 
-        .kind_wrap > .kind_slider img {
-          vertical-align: top;
-        }
-
-        .kind_wrap .arrow > a.prev {
-          position: absolute; 
-          text-decoration: none;
-          left:-50px; 
-          top:90px;
-        }
-
-        .kind_wrap .arrow > a.next {
-          position: absolute; 
-          text-decoration: none;
-          right:-50px; 
-          top:90px;
-        }
-        </style>
-
-
-    <div class="kind_wrap">
-        <div class="kind_slider">
-        <ul class="slider">
-            <li><div>1. 우왕 첫 번째 슬라이드입니댜</div></li>
-            <li><div>2. 두 번째 슬라이드입니다</div></li>
-            <li><div>3. 세 번째 슬라이드에용</div></li>
-            <li><div>4. 네 번째 슬라이드일까용</div></li>
-            <li><div>5. 마지막 다섯번 째 슬라이드요!!</div></li>
-        </ul>
-        </div>
-        <div class="arrow">
-            <a href="" class="prev">&#10094;</a>
-            <a href="" class="next">&#10095;</a>
-        </div>
+      <button id="prev" class="absolute text-2xl hover:bg-gray-200 left-0 top-0 h-[100%]" onclick="turnOver(-1)">&#10094;</button>
+      <button id="next" class="absolute text-2xl hover:bg-gray-200 right-0 top-0 h-[100%]" onclick="turnOver(1)">&#10095;</button>
     </div>
 
-
     <script>
-        window.onload = function() {
-          const kindWrap =  document.querySelector('.kind_wrap');
-          const slider = kindWrap.querySelector('.slider');
-          const slideLis = slider.querySelectorAll('li')
-          const moveButton = kindWrap.querySelector('.arrow');
-      
-          /* 클론 */
-          const clone1 = slideLis[0].cloneNode(true);
-          const cloneLast = slideLis[slideLis.length - 1].cloneNode(true);
-          slider.insertBefore(cloneLast, slideLis[0]);
-          slider.appendChild(clone1);
-      
-          /* 주요 변수 초기화 */  
-          let currentIdx = 0;
-          let translate = 0;
-          const speedTime = 500;
-      
-          /* CSSOM 셋업 */
-          const sliderCloneLis = slider.querySelectorAll('li');
-          const liWidth = slideLis[0].clientWidth;
-          const sliderWidth = liWidth * sliderCloneLis.length;
-          slider.style.width = `${sliderWidth}px`;
-          currentIdx = 1;
-          translate = -liWidth;
-          slider.style.transform = `translateX(${translate}px)`
-      
-          /* 리스너 설치하기 */
-          moveButton.addEventListener('click', moveSlide);
-      
-          /* 슬라이드 실행 */
-          function move(D) {
-            currentIdx += (-1 * D);
-            translate += liWidth * D;
-            slider.style.transform = `translateX(${translate}px)`;
-            slider.style.transition = `all ${speedTime}ms ease`
-          }
-      
-          /* 클릭 버튼 */
-          function moveSlide(event) {
-            event.preventDefault();
-            if (event.target.className === 'next') {
-              move(-1);
-              if (currentIdx === sliderCloneLis.length -1)
-                setTimeout(() => {
-                  slider.style.transition = 'none';
-                  currentIdx = 1;
-                  translate = -liWidth;
-                  slider.style.transform = `translateX(${translate}px)`;
-                }, speedTime);
-            } else {
-                move(1);
-                if (currentIdx === 0) {
-                  setTimeout(() => {
-                    slider.style.transition = 'none';
-                    currentIdx = sliderCloneLis.length -2;
-                    translate = -(liWidth * currentIdx);
-                    slider.style.transform = `translateX(${translate}px)`;
-                  }, speedTime);
-                }
-              }
-          }
-      
+    var container = document.getElementById('container');
+    var images = document.getElementsByClassName("image");
+    // console.log(`이동량 : ${imageWidth}`);
+    // buttons
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+    var imageWidth = images[0].clientWidth;
+
+    // index and left
+    var index = 0;
+    var firstIndex = 0;
+    var lastIndex = images.length - 1;
+    var left = 0;
+
+    window.addEventListener("resize", function () {
+      imageWidth = images[0].clientWidth;
+      console.log(`너비: ${imageWidth}`)
+      if(index !== firstIndex){
+         if (imageWidth++){
+           console.log("1증가")
+           container.style.transform = `translateX(${-((imageWidth*index)+1)}px)`;
         }
-      </script>
-</body>
-</html>
+       }
+    })
+    
+    function turnOver(data) {
+      index += data;
+
+      // 컨테이너의 이동량
+      left = -(index * imageWidth);
+
+      console.log(`이동량 : ${left}`)
+      // 실시간으로 업데이트해야하는 스타일의 경우 style 애트리뷰트를 사용할 수 있다
+      container.style.transform = `translateX(${left}px)`;
+
+      // 이전 버튼
+      if (index === firstIndex) { // 첫번째 사진인 경우
+        prev.classList.add('hidden');
+      } else { // 나머지 사진
+        prev.classList.remove('hidden');
+      }
+
+      // 다음 버튼
+      if (index === lastIndex) { // 마지막 사진인 경우
+        next.classList.add('hidden');
+      } else { // 나머지 사진
+        next.classList.remove('hidden');
+      }
+    }
+    </script>
+
+    <h1>더보기</h1>
+      <ul>
+        <li class="content">content1</li>
+        <li class="content">content2</li>
+        <li class="content">content3</li>
+        <li class="content hidden">content4</li>
+        <li class="content hidden">content5</li>
+        <li class="content hidden">content6</li>
+        <li class="content hidden">content7</li>
+        <li class="content hidden">content8</li>
+      </ul>
+      <button id="openBtn" class="openBtn">더보기</button>
+      <button id="closeBtn" class=" closeBtn hidden">닫기</button>
+
+      <ul>
+        <li class="content">content1</li>
+        <li class="content">content2</li>
+        <li class="content">content3</li>
+        <li class="content hidden">content4</li>
+        <li class="content hidden">content5</li>
+        <li class="content hidden">content6</li>
+        <li class="content hidden">content7</li>
+        <li class="content hidden">content8</li>
+      </ul>
+    <button id="openBtn" class="openBtn">더보기</button>
+    <button id="closeBtn" class=" closeBtn hidden">닫기</button>
+  
+    <script>
+      // var container = document.getElementById("container_1");
+      var contents = document.getElementsByClassName("content");
+      var openBtn = document.getElementById("openBtn");
+      var closeBtn = document.getElementById("closeBtn");
+      var openlen = contents.length - 3;
+      var closelen = contents.length - 3;
+      // var content = container.textContent;
+  
+      openBtn.addEventListener("click", function () {
+        console.log("버튼 눌림")
+        if(openlen/3 > 1){
+          for(var i=3;i<6;i++){
+            contents[i].classList.remove("hidden");
+          }
+          openlen-=3;
+        }
+        else{
+          for(var i=3;i<contents.length;i++){
+            contents[i].classList.remove("hidden");
+          }
+          openBtn.classList.add("hidden");
+          closeBtn.classList.remove("hidden");
+          openlen = contents.length - 3;
+          }
+      })
+
+      closeBtn.addEventListener("click", function () {
+        if(closelen/3 > 1){
+          for(var i=contents.length-1;i>=(contents.length-(closelen%3));i--){
+            contents[i].classList.add("hidden");
+          }
+          closelen-=closelen%3;
+        }
+        else{
+          for(var i=contents.length-(closelen%3)-1;i>2;i--){
+            contents[i].classList.add("hidden");
+          }
+         openBtn.classList.remove("hidden");
+         closeBtn.classList.add("hidden");
+         closelen = contents.length - 3;
+        }
+      })
+    </script>
+  </body> 
+
+  <!-- <h1>Carousel</h1>
+
+  <style>
+    /* frame */
+    #frame {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* container and images */
+    #container {
+      display: flex;
+      width: 600px;
+      transition: transform 0.2s;
+    }
+
+    .image {
+      width: 200px;
+      height: 200px;
+      font-size: 2rem;
+      background-image: linear-gradient(to right, #333, #222);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    /* buttons */
+    #prev, #next {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      font-size: 2rem;
+      color: rgba(255 255 255 / 0.5);
+    }
+
+    #prev {
+      left: 0;
+    }
+
+    #next {
+      right: 0;
+    }
+
+    /* toggle class */
+    .hidden {
+      display: none;
+    }
+
+    .active {
+      opacity: 1;
+    }
+  </style>
+
+  <div id="frame">
+    <div id="container">
+      <div class="image">1</div>
+      <div class="image">2</div>
+      <div class="image">3</div>
+    </div>
+
+    <button id="prev" class="hidden" onclick="turnOver(-1)">&#10094;</button>
+    <button id="next" onclick="turnOver(1)">&#10095;</button>
+  </div>
+
+  
+  <script>
+    // container and images
+    var container = document.getElementById('container');
+    var images = document.getElementsByClassName("image");
+    var imageWidth = 200
+    // buttons
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+
+    // index and left
+    var index = 0;
+    var firstIndex = 0;
+    var lastIndex = images.length - 1;
+    var left = 0;
+
+    function turnOver(data) {
+      index += data;
+
+      // 컨테이너의 이동량
+      left = -(index * imageWidth);
+
+      // 실시간으로 업데이트해야하는 스타일의 경우 style 애트리뷰트를 사용할 수 있다
+      container.style.transform = `translateX(${left}px)`;
+
+      // 이전 버튼
+      if (index === firstIndex) { // 첫번째 사진인 경우
+        prev.classList.add('hidden');
+      } else { // 나머지 사진
+        prev.classList.remove('hidden');
+      }
+
+      // 다음 버튼
+      if (index === lastIndex) { // 마지막 사진인 경우
+        next.classList.add('hidden');
+      } else { // 나머지 사진
+        next.classList.remove('hidden');
+      }
+    }
+  </script>-->
+</html> 

@@ -9,6 +9,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/style.css">
+   <!-- 폰트 라이브러리 -->
+   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata"> -->
+   <!-- 폰트 적용 -->
+   <style>
+     body {
+       font-family: sans-serif;
+       font-size: small;
+     }
+   </style>
 </head>
 <body class="p-4 bg-gray-100">
 
@@ -23,8 +32,8 @@
   </p> -->
 
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-screen bg-gradient-to-r from-cyan-950 to-teal-600" >
-  <nav class="z-10 lg:hidden">
+  <header class="fixed z-[99] top-0 left-0 w-screen bg-gradient-to-r from-cyan-950 to-teal-600" >
+  <nav class="lg:hidden">
     <div class="flex items-center h-12">
       <button id ="openBtn" class="px-4 text-xl text-white">
         &#9776;
@@ -34,13 +43,13 @@
         class="w-40 mr-auto cursor-pointer"
         src="./img/cau.logo.ko.png" alt="">
 
-      <button class="mr-2 text-white border rounded py-1 px-2">Login</button>
+      <button class="mr-2 text-white border rounded py-2 px-3 mr-5">Login</button>
     </div>
   </nav>
 
   <!-- NAVBAR -->
-  <nav id="navbar" class="h-25 px-4 hidden lg:block z-30">
-    <ul class="flex pt-2 pb-4 justify-end">
+  <nav id="navbar" class="h-25 px-4 hidden lg:block z-40">
+    <ul class="flex pt-2 pb-4 justify-end mr-4">
       <svg class="w-4 m-1 invert opacity-70" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
         <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 
         40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 
@@ -98,7 +107,10 @@
       </li>
     </ul>
 
-      <!-- NAVBAR2 -->
+
+      <!-- NAVBAR :  menu-->
+
+      <!-- 정보마당 -->
       <nav id="navbar_1" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
         <img class="inline-block w-40 m-4 border-r-2" src=".\img\cau100th.png" alt="">
         <div class="inline-block w-44">
@@ -135,6 +147,7 @@
         </div>
       </nav>
 
+      <!-- 학사마당 -->
       <nav id="navbar_2" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
         <img class="inline-block w-40 m-4 border-r-2" src=".\img\cau100th.png" alt="">
         <div class="inline-block w-44">
@@ -165,6 +178,7 @@
         </div>
       </nav>
 
+      <!-- e-상담센터 -->
       <nav id="navbar_3" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
         <img class="inline-block w-40 m-4 border-r-2" src=".\img\cau100th.png" alt="">
         <div class="inline-block w-44">
@@ -188,6 +202,7 @@
         </div>
       </nav>
 
+      <!-- 학부모마당 -->
       <nav id="navbar_4" class="fixed top-25 left-0 w-screen h-64 bg-white px-4 hidden z-30">
         <img class="inline-block w-40 m-4 border-r-2" src=".\img\cau100th.png" alt="">
         <div class="inline-block w-44">
@@ -202,8 +217,9 @@
         </div>
       </nav>
 
+      <!-- 주요사이트 -->
       <nav id="navbar_5" class="fixed top-25 left-0 w-screen h-96 bg-white px-4 hidden z-30">
-        <img class="inline-block w-40 m-4 border-r-2" src=".\img\cau100th.png" alt="">
+        <img class="inline-block w-40 m-4 border-r-2 pt-4 pb-28" src=".\img\cau100th.png" alt="">
         <div class="inline-block w-44">
           <ul class="fixed top-32 w-44">
             <li>
@@ -250,8 +266,9 @@
       </nav>
   </nav>
 </header>
+
   <!-- SIDEBAR -->
-  <nav id="sideBar" class="fixed top-0 left-0 w-[500px] h-screen hidden z-30">
+  <nav id="sideBar" class="fixed top-0 left-0 w-[500px] h-screen hidden z-[999]">
     <ul class="flex pr-0 justify-end left-0 w-[500px] h-12 bg-blue-900 px-4 z-30">
 
       <svg class="m-3 rotate-[30deg] invert" xmlns="http://www.w3.org/2000/svg" width="1.6rem" height="1.4rem" viewBox="0 0 448 512">
@@ -295,206 +312,949 @@
   </nav>
 
 <!-- MAIN -->
-  <main class="mt-12 max-w-screen-2xl px-4 2xl:ml-40 lg:mt-24">  
-    <div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+  <main class="relative mt-12 max-w-screen-2xl px-4 2xl:ml-40 lg:mt-24">  
 
+    <!-- 오버레이 -->
+    <!-- style="width: calc(100% - );" -->
+    <div id="overlay" class="absolute z-20 opacity-50 bg-gray-500 w-[97.5%] h-full hidden">
+
+    </div>
+
+    <div class="grid sm:grid-cols-1 lg:grid-cols-2 min-[1180px]:grid-cols-3">
+
+      <!-- section 1 -->
       <section class="h-auto max-w-lg">
-        <div class="border mb-2 bg-white m-0 xl:block hidden">
-          <!-- xl:block -> 2xl:block hidden -->
-          <div class="p-1 border-b">학교소개</div>
-          <div class="kind_wrap flex border border-black m-0 pl-2 relative">
-            <div class="kind_slider relative ml-3 p-0 my-4 border w-full overflow-hidden">
-              <ul class="slider">
-                  <li class="float-left flex w-[555px]">
-                    <div class="flex">
-                      <img class="w-36" src="./img/imageView1.avif" alt="">
-                      <img class="px-4 w-36" src="./img/sub_brand_img4.jpg" alt="">
-                    </div>
-                  </li>
-                  <li class="float-left flex w-[580px] bg-pink-300"><div>2</div></li>
-                  <li class="float-left flex w-[580px] bg-yellow-300"><div>3</div></li>
-                  <li class="float-left flex w-[580px] bg-gray-300"><div>4</div></li>
-                  <li class="float-left flex w-[580px] bg-green-300"><div>5</div></li>
-              </ul>
+
+        <!-- 학교소개 -->
+        <div class="border mb-2 bg-white m-0 hidden xl:block">
+          <div class="p-3 border-b">학교소개</div>
+          <div id="frame" class="relative h-full overflow-hidden">
+            <div id="container" class="flex w-[300%]">
+              <div class="image flex w-full h-[200px] justify-center">
+                <a href="">
+                  <img src=".\img\imageView1.avif" class="flex mt-8 mx-2 flex-wrap w-36 h-24" alt=""> 
+                  <p class="text-center">NEW VISION CAU2030</p>
+                </a>
+                <a href="">
+                  <img src=".\img\sub_brand_img4.jpg" class="flex mt-8 mx-2 flex-wrap w-36 h-24" alt="">
+                  <p class="text-center">교육이념/목적/목표</p>
+                </a>
+              </div>
+              <div class="image flex w-full h-[200px] justify-center">
+                <a href="">
+                  <img src=".\img\imageView_intro1.avif" class="flex mt-8 mx-2 flex-wrap w-36 h-24" alt=""> 
+                  <p class="text-center">이사장 인사말</p>
+                </a>
+                <a href="">
+                  <img src=".\img\imageView_intro2.avif" class="flex mt-8 mx-2 flex-wrap w-36 h-24" alt="">
+                  <p class="text-center">총장 인사말</p>
+                </a>
+              </div>
+              <div class="image flex w-full h-[200px] justify-center">
+                <a href="">
+                  <img src=".\img\imageView_10.avif" class="flex mt-8 mx-2 flex-wrap w-36 h-24" alt=""> 
+                  <p class="text-center">중앙대 역사</p>
+                </a>
+                <a href="">
+                  <img src=".\img\imageView_11.avif" class="flex mt-8 mx-2 flex-wrap w-36 h-24" alt="">
+                  <p class="text-center">중앙대 상징</p>
+                </a>
+              </div>
             </div>
-            <div class="arrow text-2xl hover:bg-gray-200 p-1 my-4">
-                <a href="" class="prev absolute left-0 hover:bg-gray-200 p-1">&#10094;</a>
-                <a href="" class="next">&#10095;</a>
-            </div>
+  
+            <button id="prev" class="absolute text-2xl hover:bg-gray-200 left-0 top-[40%] mx-2" onclick="turnOver(-1)">&#10094;</button>
+            <button id="next" class="absolute text-2xl hover:bg-gray-200 right-0 top-[40%] mx-2" onclick="turnOver(1)">&#10095;</button>
           </div>
-            <!-- </div>
-            <div class="arrow">
-                <a href="" class="prev absolute left-0">&#10094;</a>
-                <a href="" class="next absolute right-0">&#10095;</a>
+        </div>
+
+        <!-- CAU News Today -->
+        <div class="border mb-2 bg-white">
+          <div class="p-3 border-b">CAU News Today</div>
+          <div class="relative h-full overflow-hidden">
+    
+            <div id="News_container" class="flex w-[200%]">
+              <div class="n_image flex w-full h-[250px] justify-center">
+                  <a href="" class="w-40 mt-8 mx-2">
+                    <img src=".\img\이현순_이사장-박상규_총장.jpg" class="flex flex-wrap w-36 h-24" alt=""> 
+                    <p class="text-left">학교법인 중앙대학교 이사회, 이현순 신임 이사장 선</p>
+                    <p class="text-left text-gray-400">학교법인중앙대학교 이사회가 이현순 신임 이사장</p>
+                  </a>
+                  <a href="" class="w-40 mt-8 mx-2">
+                    <img src=".\img\1_2.jpg" class="flex flex-wrap w-36 h-24" alt="">
+                    <p class="text-left">중앙철학연구소 ‘분노사회에서 신뢰사회로’ 연구, 인</p>
+                    <p class="text-left text-gray-400">우리 대학 산하 연구기관인 중앙철학연구소가 202</p>
+                  </a>
+                </div>
+
+                <div class="n_image flex w-full h-[250px] justify-center">
+                  <a href="" class="w-40 mt-8 mx-2">
+                    <img src=".\img\[사진]image01_1.jpg" class="flex flex-wrap w-36 h-24" alt=""> 
+                    <p class="text-left">융합보안학과 ‘블록체인 기반 SW저작권 보호 인재</p>
+                    <p class="text-left text-gray-400">우리 대학 융합보안학과 &lsquo;블록체인 기반 SW</p>
+                  </a>
+                  <a href="" class="w-40 mt-8 mx-2">
+                    <img src=".\img\기사사진1.jpg" class="flex flex-wrap w-36 h-24" alt="">
+                    <p class="text-left">창업경영대학원 최고경영자과정(Trend Topic AM</p>
+                    <p class="text-left text-gray-400">창업경영대학원 최고경영자과정(Trend Topic AM</p>
+                  </a>
+                </div>
             </div>
-          </div> -->
+      
+            <button id="News_prev" class="absolute text-2xl hover:bg-gray-200 left-0 top-[40%] mx-2" onclick="n_turnOver(-1)">&#10094;</button>
+            <button id="News_next" class="absolute text-2xl hover:bg-gray-200 right-0 top-[40%] mx-2" onclick="n_turnOver(1)">&#10095;</button>
+          </div>
         </div>
 
-
+        <!-- 학사일정 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">CAU News Today</div>
-          내용
-        </div>
-
-        <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">학사일정</div>
+          <div class="p-3 border-b">학사일정</div>
           <div class="flex flex-wrap">
             <input type="radio" class="hidden peer/9" name="schedule" id="9" checked>
-            <label for="9" class="text-center w-12 cursor-pointer pb-2 mx-2 mt-4
+            <label for="9" class="text-center w-7 cursor-pointer pb-2 mx-2 mt-3 ml-4
             peer-checked/9:border-b-4 peer-checked/9:border-blue-900">
               9월
             </label>
       
             <input type="radio" class="hidden peer/10" name="schedule" id="10">
-            <label for="10" class="text-center w-12 cursor-pointer pb-2 mx-2 mt-4 
+            <label for="10" class="text-center w-8 cursor-pointer pb-2 mx-2 mt-3
             peer-checked/10:border-b-4 peer-checked/10:border-blue-900">
               10월
             </label>
 
-            <input type="radio" class="hidden peer/11" name="schedule" id="11" checked>
-            <label for="11" class="text-center w-12 cursor-pointer pb-2 mx-2 mt-4
+            <input type="radio" class="hidden peer/11" name="schedule" id="11">
+            <label for="11" class="text-center w-8 cursor-pointer pb-2 mx-2 mt-3
             peer-checked/11:border-b-4 peer-checked/11:border-blue-900">
               11월
             </label>
       
             <input type="radio" class="hidden peer/12" name="schedule" id="12">
-            <label for="12" class="text-center w-12 cursor-pointer pb-2 mx-2 mt-4 
+            <label for="12" class="text-center w-8 cursor-pointer pb-2 mx-2 mt-3
             peer-checked/12:border-b-4 peer-checked/12:border-blue-900">
               12월
             </label>
 
-            <input type="radio" class="hidden peer/1" name="schedule" id="1" checked>
-            <label for="1" class="text-center w-12 cursor-pointer pb-2 mx-2 mt-4
+            <input type="radio" class="hidden peer/1" name="schedule" id="1">
+            <label for="1" class="text-center w-7 cursor-pointer pb-2 mx-2 mt-3
             peer-checked/1:border-b-4 peer-checked/1:border-blue-900">
               1월
             </label>
       
             <input type="radio" class="hidden peer/2" name="schedule" id="2">
-            <label for="2" class="text-center w-12 cursor-pointer pb-2 mx-2 mt-4 
+            <label for="2" class="text-center w-7 cursor-pointer pb-2 mx-2 mt-3
             peer-checked/2:border-b-4 peer-checked/2:border-blue-900">
               2월
             </label>
             
 
             <!-- 9월 -->
-            <div class="border-t pl-8 p-4 w-full hidden peer-checked/9:block">
-              <ul class="list-disc">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+            <div class=" border-t p-4 w-full hidden peer-checked/9:block">
+              <ul>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 2023년 2학기 개시일/개강일</div>
+                  <div class="inline-block text-gray-400"><p>01일(금)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 유연학기 Term3(8주)</div>
+                  <div class="inline-block text-gray-400"><p>01일(금)~10.26일(목)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 2023년 2학기 수강신청 정정</div>
+                  <div class="inline-block text-gray-400"><p>01일(금)~07일(목)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 2023년 2학기 수강과목 취소(4주차)</div>
+                  <div class="inline-block text-gray-400"><p>22일(금)~28일(목)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 2023년 2학기 강의 Feedback 실시</div>
+                  <div class="inline-block text-gray-400"><p>22일(금)~10.05일(목)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 추석(공휴일)</div>
+                  <div class="inline-block text-gray-400"><p>28일(목)~30일(토)</p></div>
+                </li>
               </ul>
             </div>
             
             <!-- 10월 -->
-            <div class="border-t pl-8 p-4 w-full hidden peer-checked/10:block">
-              <ul ul class="list-disc">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+            <div class=" border-t p-4 w-full hidden peer-checked/10:block">
+              <ul>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 2023년 2학기 중간시험(8주차)</div>
+                  <div class="inline-block text-gray-400"><p>20일(금)~26일(목)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 유연학기 Term4(8주)</div>
+                  <div class="inline-block text-gray-400"><p>27일(금)~12.21일(목)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 임시공휴일</div>
+                  <div class="inline-block text-gray-400"><p>02일(월)</p></div>
+                </li>
+                <li class="flex cursor-pointer pb-1 justify-between">
+                  <div class="ellipis"><p>&#8226;</p> 개교107주년</div>
+                  <div class="inline-block text-gray-400"><p>17일(화)</p></div>
+                </li>
               </ul>
             </div>
-          </div>
 
           <!-- 11월 -->
-          <div class="border-t pl-8 p-4 w-full hidden peer-checked/11:block">
-            <ul ul class="list-disc">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+          <div class=" border-t p-4 w-full hidden peer-checked/11:block">
+            <ul>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 동계 계절학기 시행 공지</div>
+                <div class="inline-block text-gray-400"><p>06일(월)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 졸업논문 제출</div>
+                <div class="inline-block text-gray-400"><p>06일(월)~10일(금)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 다전공 신청(복수,융합,연계,자기설계,부전공)</div>
+                <div class="inline-block text-gray-400"><p>13일(월)~24일(금)</p></div>
+              </li>
             </ul>
           </div>
 
           <!-- 12월 -->
-          <div class="border-t pl-8 p-4 w-full hidden peer-checked/12:block">
-            <ul ul class="list-disc">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+          <div class="border-t p-4 w-full hidden peer-checked/12:block">
+            <ul>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 2학기 성적입력</div>
+                <div class="inline-block text-gray-400"><p>15일(금)~29일(금)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 동계 계절학기</div>
+                <div class="inline-block text-gray-400"><p>26일(화)~01.17일(수)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 2학기 강의평가 실시</div>
+                <div class="inline-block text-gray-400"><p>01일(금)~29일(금)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 전공개방모집희망전공신청</div>
+                <div class="inline-block text-gray-400"><p>01일(금)~07일(목)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 2학기 기말시험(16주차)</div>
+                <div class="inline-block text-gray-400"><p>15일(금)~21일(목)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 겨울방학</div>
+                <div class="inline-block text-gray-400"><p>22일(금)~02.29일(목)</p></div>
+              </li>
             </ul>
           </div>
 
           <!-- 1월 -->
-          <div class="border-t pl-8 p-4 w-full hidden peer-checked/1:block">
-            <ul ul class="list-disc">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+          <div class=" border-t p-4 w-full hidden peer-checked/1:block">
+            <ul>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 2학기 성적조회</div>
+                <div class="inline-block text-gray-400"><p>02일(화)~07일(일)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 2학기 성적정정</div>
+                <div class="inline-block text-gray-400"><p>03일(수)~07일(일)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2023년 2학기 성적확정(보관성적 이관일)/2024년 1학기 전공개방모집희망전공정정</div>
+                <div class="inline-block text-gray-400"><p>08일(월)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 재입학 원서접수</div>
+                <div class="inline-block text-gray-400"><p>02일(화)~05일(금)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 복학신청</div>
+                <div class="inline-block text-gray-400"><p>24일(수)~31일(수)</p></div>
+              </li>
             </ul>
           </div>
 
           <!-- 2월 -->
-          <div class="border-t pl-8 p-4 w-full hidden peer-checked/2:block">
-            <ul ul class="list-disc">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+          <div class=" border-t p-4 w-full hidden peer-checked/2:block">
+            <ul>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 수강신청 장바구니 담기</div>
+                <div class="inline-block text-gray-400"><p>02일(금)~05일(월)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 설날(공휴일)</div>
+                <div class="inline-block text-gray-400"><p>09일(금)~12일(월)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 수강신청</div>
+                <div class="inline-block text-gray-400"><p>14일(수)~16일(금)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 2월 학위수여식</div>
+                <div class="inline-block text-gray-400"><p>19일(월)~23일(금)</p></div>
+              </li>
+              <li class="flex cursor-pointer pb-1 justify-between">
+                <div class="ellipis"><p>&#8226;</p> 2024년 1학기 재학생 등록</div>
+                <div class="inline-block text-gray-400"><p>20일(화)~23일(금)</p></div>
+              </li>
             </ul>
           </div>
         </div>
+      </div>
 
+      <!-- 식단표 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">식단표</div>
-          내용
+          <div class="p-1 border-b">
+            <div class="flex flex-wrap">
+              <p class="p-3 pr-[60%]">식단표</p>
+              <input type="radio" class="hidden peer/seoul-menu" name="menu" id="seoul-menu" checked>
+              <label for="seoul-menu" class="text-center cursor-pointer pb-2 mx-4 mt-3
+              peer-checked/seoul-menu:border-b-4 peer-checked/seoul-menu:border-blue-900">
+                서울
+              </label>
+        
+              <input type="radio" class="hidden peer/davinci-menu" name="menu" id="davinci-menu">
+              <label for="davinci-menu" class="cursor-pointer pb-2 mt-3
+              peer-checked/davinci-menu:border-b-4 peer-checked/davinci-menu:border-blue-900">
+                다빈치
+              </label>
+  
+              <!-- 서울 식단표 -->
+              <div class="border-t pt-2 pl-2 w-full hidden peer-checked/seoul-menu:block">
+
+                <div class="inline-block pr-[40%] lg:pr-[50%] xl:pr-[35%]">
+                  <button id="s_menu_date_prev""><</button>
+                  <p id="date" class="inline-block px-2 font-semibold text-blue-900">날짜</p>
+                  <button id="s_menu_date_next">></button>
+                </div>
+                
+                  <input type="radio" class="hidden peer/s-b" name="s-menu" id="s-b" checked>
+                  <label for="s-b" class="cursor-pointer border pl-1 py-1
+                  peer-checked/s-b:text-white peer-checked/s-b:bg-blue-900">
+                    조식
+                  </label>
+            
+                  <input type="radio" class="hidden peer/s-l" name="s-menu" id="s-l">
+                  <label for="s-l" class="cursor-pointer border pl-1 py-1
+                  peer-checked/s-l:text-white peer-checked/s-l:bg-blue-900">
+                    중식
+                  </label>
+
+                  <input type="radio" class="hidden peer/s-d" name="s-menu" id="s-d">
+                  <label for="s-d" class="cursor-pointer border p-1
+                  peer-checked/s-d:text-white peer-checked/s-d:bg-blue-900">
+                    석식
+                  </label>
+    
+                  <!-- 아침 -->
+                  <div class="border-t mt-2 w-full hidden peer-checked/s-b:block">
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sb_room_1" name="sb_room" id="sb_room_1" checked>
+                      <label for="sb_room_1" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        생활관식당(블루미르308관)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/sb_room_1:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>07:30~08:40</p></div>
+                            <div><p>조식(한식)</p></div>
+                            <div><p>4,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+                  </div>
+                  
+                  <!-- 점심 -->
+                  <div class="border-t mt-2 w-full hidden hidden peer-checked/s-l:block">
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sl_room_1" name="sl_room" id="sl_room_1" checked>
+                      <label for="sl_room_1" class="w-full p-1 text-green-600 cursor-pointer">
+                        참슬기식당(310관 B4층)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/sl_room_1:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>11:00~13:30</p></div>
+                            <div><p>중식(한식)</p></div>
+                            <div><p>4,000원</p></div>
+                          </li>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>11:30~13:30</p></div>
+                            <div><p>중식(특식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sl_room_2" name="sl_room" id="sl_room_2">
+                      <label for="sl_room_2" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        생활관식당(블루미르308관)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/sl_room_2:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>11:30~13:30</p></div>
+                            <div><p>중식(한식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sl_room_3" name="sl_room" id="sl_room_3">
+                      <label for="sl_room_3" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                      생활관식당(블루미르309관)
+                      </label>
+
+                        <div class=" border-t p-2 w-full hidden peer-checked/sl_room_3:block">
+                          <ul>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>11:30~13:30</p></div>
+                              <div><p>석식(한식)</p></div>
+                              <div><p>7,000원</p></div>
+                            </li>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>11:30~13:30</p></div>
+                              <div><p>중식(양식)</p></div>
+                              <div><p>7,000원</p></div>
+                            </li>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>11:30~13:30</p></div>
+                              <div><p>중식(특식)</p></div>
+                              <div><p>6,000원</p></div>
+                            </li>
+                          </div>
+                      </div>
+
+                      <div class="flex flex-wrap">
+                        <input type="radio" class="hidden peer/sl_room_4" name="sl_room" id="sl_room_4">
+                        <label for="sl_room_4" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        학생식당(303관B1층)
+                        </label>
+  
+                          <div class="border-t p-2 w-full hidden peer-checked/sl_room_4:block">
+                            <ul>
+                              <li class="flex cursor-pointer justify-between">
+                                <div><p>11:00~13:30</p></div>
+                                <div><p>중식(한식)</p></div>
+                                <div><p>5,500원</p></div>
+                              </li>
+                              <li class="flex cursor-pointer justify-between">
+                                <div><p>11:30~14:00</p></div>
+                                <div><p>중식(단품1)</p></div>
+                                <div><p>3,500원</p></div>
+                              </li>
+                              <li class="flex cursor-pointer justify-between">
+                                <div><p>11:30~14:40</p></div>
+                                <div><p>중식(단품2)</p></div>
+                                <div><p>4,200원</p></div>
+                              </li>
+                              <li class="flex cursor-pointer justify-between">
+                                <div><p>11:30~14:40</p></div>
+                                <div><p>중식(단품3)</p></div>
+                                <div><p>5,500원</p></div>
+                              </li>
+                            </div>
+                        </div>
+                  </div>
+                
+                  <!-- 저녁 -->
+                  <div class="border-t mt-2 w-full hidden peer-checked/s-d:block">
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sd_room_1" name="sd_room" id="sd_room_1" checked>
+                      <label for="sd_room_1" class="w-full p-1 text-green-600 cursor-pointer">
+                        참슬기식당(310관 B4층)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/sd_room_1:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>17:00~18:30</p></div>
+                            <div><p>석식(학생석식)</p></div>
+                            <div><p>4,000원</p></div>
+                          </li>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>17:00~18:30</p></div>
+                            <div><p>석식(석식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sd_room_2" name="sd_room" id="sd_room_2">
+                      <label for="sd_room_2" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        생활관식당(블루미르308관)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/sd_room_2:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>17:30~19:00</p></div>
+                            <div><p>석식(양식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/sd_room_3" name="sd_room" id="sd_room_3">
+                      <label for="sd_room_3" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                      생활관식당(블루미르309관)
+                      </label>
+
+                        <div class=" border-t p-2 w-full hidden peer-checked/sd_room_3:block">
+                          <ul>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>16:30~18:30</p></div>
+                              <div><p>석식(한식)</p></div>
+                              <div><p>7,000원</p></div>
+                            </li>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>16:30~18:30</p></div>
+                              <div><p>석식(양식)</p></div>
+                              <div><p>7,000원</p></div>
+                            </li>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>16:30~18:30</p></div>
+                              <div><p>석식(특식)</p></div>
+                              <div><p>6,000원</p></div>
+                            </li>
+                          </div>
+                        </div>
+                  </div>
+
+              </div>
+              
+
+              <!-- 다빈치 식단표 -->
+              <div class="border-t pt-2 pl-2 w-full hidden peer-checked/davinci-menu:block">
+
+                <div class="inline-block pr-[40%] lg:pr-[50%] xl:pr-[35%]">
+                  <button id="d_menu_date_prev""><</button>
+                  <p id="d_date" class="inline-block px-2 font-semibold text-blue-900">날짜</p>
+                  <button id="d_menu_date_next">></button>
+                </div>
+
+                <input type="radio" class="hidden peer/d-b" name="d-menu" id="d-b" checked>
+                  <label for="d-b" class="cursor-pointer border pl-1 py-1
+                  peer-checked/d-b:text-white peer-checked/d-b:bg-blue-900">
+                    조식
+                  </label>
+            
+                  <input type="radio" class="hidden peer/d-l" name="d-menu" id="d-l">
+                  <label for="d-l" class="cursor-pointer border pl-1 py-1
+                  peer-checked/d-l:text-white peer-checked/d-l:bg-blue-900">
+                    중식
+                  </label>
+
+                  <input type="radio" class="hidden peer/d-d" name="d-menu" id="d-d">
+                  <label for="d-d" class="cursor-pointer border p-1
+                  peer-checked/d-d:text-white peer-checked/d-d:bg-blue-900">
+                    석식
+                  </label>
+      
+                <!-- 아침 -->
+                  <div class="border-t mt-2 w-full hidden peer-checked/d-b:block">
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/db_room_1" name="db_room" id="db_room_1" checked>
+                      <label for="db_room_1" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        카우잇츠(cau eats)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/db_room_1:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>07:30~08:40</p></div>
+                            <div><p>조식(한식)</p></div>
+                            <div><p>4,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+                  
+                  <div class="flex flex-wrap">
+                    <input type="radio" class="hidden peer/db_room_2" name="db_room" id="db_room_2">
+                    <label for="db_room_2" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                      (다빈치)카우버거
+                    </label>
+
+                    <div class=" border-t p-2 w-full hidden peer-checked/db_room_2:block">
+                      <ul>
+                        <li class="flex cursor-pointer justify-between">
+                          <div><p>08:40~09:20</p></div>
+                          <div><p>조식</p></div>
+                          <div><p>0원</p></div>
+                        </li>
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>10:30~16:30</p></div>
+                            <div><p>조식(중식)</p></div>
+                            <div><p>0원</p></div>
+                          </li>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 점심 -->
+                  <div class="border-t mt-2 w-full hidden hidden peer-checked/d-l:block">
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/dl_room_1" name="dl_room" id="dl_room_1" checked>
+                      <label for="dl_room_1" class="w-full p-1 text-green-600 cursor-pointer">
+                        카우잇츠(cau eats)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/dl_room_1:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>11:00~13:30</p></div>
+                            <div><p>중식(한식)</p></div>
+                            <div><p>4,000원</p></div>
+                          </li>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>11:30~13:30</p></div>
+                            <div><p>중식(특식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/dl_room_2" name="dl_room" id="dl_room_2">
+                      <label for="dl_room_2" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        (다빈치)라면
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/dl_room_2:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>11:30~13:30</p></div>
+                            <div><p>중식(중식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+                  </div>
+                
+                  <!-- 저녁 -->
+                  <div class="border-t mt-2 w-full hidden peer-checked/d-d:block">
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/dd_room_1" name="dd_room" id="dd_room_1" checked>
+                      <label for="dd_room_1" class="w-full p-1 text-green-600 cursor-pointer">
+                        카우잇츠(cau eats)
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/dd_room_1:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>17:00~18:30</p></div>
+                            <div><p>석식(학생석식)</p></div>
+                            <div><p>4,000원</p></div>
+                          </li>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>17:00~18:30</p></div>
+                            <div><p>석식(석식)</p></div>
+                            <div><p>5,500원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/dd_room_2" name="dd_room" id="dd_room_2">
+                      <label for="dd_room_2" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        (다빈치) 카우버거
+                      </label>
+
+                      <div class=" border-t p-2 w-full hidden peer-checked/dd_room_2:block">
+                        <ul>
+                          <li class="flex cursor-pointer justify-between">
+                            <div><p>16:30~19:00</p></div>
+                            <div><p>석식(석식)</p></div>
+                            <div><p>0원</p></div>
+                          </li>
+                        </div>
+                      </div>
+
+                    <div class="flex flex-wrap">
+                      <input type="radio" class="hidden peer/dd_room_3" name="dd_room" id="dd_room_3">
+                      <label for="dd_room_3" class="w-full border-t p-1 text-green-600 cursor-pointer">
+                        (다빈치)라면
+                      </label>
+
+                        <div class=" border-t p-2 w-full hidden peer-checked/dd_room_3:block">
+                          <ul>
+                            <li class="flex cursor-pointer justify-between">
+                              <div><p>16:30~18:30</p></div>
+                              <div><p>석식(석식)</p></div>
+                              <div><p>2,500원</p></div>
+                            </li>
+                          </div>
+                      </div>
+                  </div>
+
+            </div>
+
+          </div>
+          </div>
         </div> 
       </section>
 
+      <!-- section 2 -->
       <section class="h-auto max-w-lg max-xl:order-first">
+        
+        <!-- 이미지 -->
         <div class="border mb-2">
           <img src="./img/imageView.avif" alt="">
         </div>
 
+        <!-- 공지사항 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">공지사항</div>
+          <div class="p-3 border-b">공지사항</div>
           <div class="flex flex-wrap">
             <input type="radio" class="hidden peer/portal" name="announce" id="portal" checked>
-            <label for="portal" class="text-center cursor-pointer pb-2 mx-4 mt-4
+            <label for="portal" class="text-center cursor-pointer pb-2 mx-4 mt-3
             peer-checked/portal:border-b-4 peer-checked/portal:border-blue-900">
               포탈 공지
             </label>
       
             <input type="radio" class="hidden peer/rule" name="announce" id="rule">
-            <label for="rule" class="text-center cursor-pointer pb-2  mt-4 
+            <label for="rule" class="text-center cursor-pointer pb-2  mt-3 
             peer-checked/rule:border-b-4 peer-checked/rule:border-blue-900">
               학칙개정 공고
             </label>
 
             <!-- 포탈공지 -->
-            <div class="border-t pl-8 p-4 w-full hidden peer-checked/portal:block">
-              <ul class="list-disc">
-                <li>1</li>
+            <div class="border-t p-4 w-full hidden peer-checked/portal:block">
+              <ul>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> 포탈시스템 본인확인서비스 일시 중단 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023.10.05</p></div>
+                </li>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> MATLAB 교내 사용 및 설치 안내</a>
+                  <div class="inline-block text-gray-400"><p>2018.03.02</p></div>
+                </li>
               </ul>
             </div>
             
             <!-- 학칙개정 -->
-            <div class="border-t pl-8 p-4 w-full hidden peer-checked/rule:block">
-              <ul ul class="list-disc">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+            <div class="border-t p-4 w-full hidden peer-checked/rule:block">
+              <ul>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> 2019학년도 8월 학칙 개정(안) 공고</a>
+                  <div class="inline-block text-gray-400"><p>2019.07.25</p></div>
+                </li>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> 2019학년도 학칙 개정(안) 공고</a>
+                  <div class="inline-block text-gray-400"><p>2019.04.02</p></div>
+                </li>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> 2020학년도 학칙 개정(안) 공고</a>
+                  <div class="inline-block text-gray-400"><p>2019.01.17</p></div>
+                </li>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> 2018학년도 학칙 개정(안) 추가 공고</a>
+                  <div class="inline-block text-gray-400"><p>2018.11.07</p></div>
+                </li>
+                <li class="flex pb-1 justify-between">
+                  <a class="ellipis" href="#"><p>&#8226;</p> 2018학년도 학칙 개정(안) 추가 공고</a>
+                  <div class="inline-block text-gray-400"><p>2018.07.12</p></div>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
+        <!-- 입시정보 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">입시정보</div>
-          <div class="p-1 border-b">
-            <button>공지사항</button>
+          <div class="p-3 border-b">입시정보</div>
+          <div class="flex flex-wrap">
+            <input type="radio" class="hidden peer/announce" name="entrance" id="announce" checked>
+            <label for="announce" class="text-center cursor-pointer pb-2 mx-4 mt-4
+            peer-checked/announce:border-b-4 peer-checked/announce:border-blue-900">
+              공지사항
+            </label>
+
+            <!-- 공지사항 -->
+            <div class="border-t p-4 w-full hidden peer-checked/announce:block">
+              <ul>
+                <li class="flex content pb-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24 재외국민 특별전형 최초합격자 발표</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.06</p></div>
+                </li>
+                <li class="flex content py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24 수시 실기/실적(실기형) 촬영 가이드 및 영상 업로드 안내 [연극(연기,뮤지컬연기), TV방송연예 전공]</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24학년도 정시 모집요강 공지</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> 입학안내책자 개별 발송 신청</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24 수시 실기/실적(특기형) 체육 단체/개인종목 채점기준</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24 수시 실기/실적(실기형) 골프 실기고사 채점표</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24 수시 실기/실적(실기형) 실기 일정 및 장소 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24학년도 편입학 입학전형시행계획 공고</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24학년도 3월입학 재외국민 추가요청 서류 업로드 링크</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24학년도 3월 입학 재외국민 특별전형 원서접수</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24학년도 신입생 장학제도 기본계획</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+                <li class="flex content py-1 justify-between hidden">
+                  <a class="ellipis" href=""><p>&#8226;</p> '24학년도 전형 안내영상(유튜브)</a>
+                  <div class="inline-block text-gray-400"><p>2023.09.01</p></div>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full border-t text-center p-2">
+              <button id="viewOpenBtn" class="">더보기 
+                <div class="inline-block px-2 rotate-90 text-gray-400">&#9002;</div></button>
+              
+              <button id="viewCloseBtn" class="hidden">닫기 
+                <div class="inline-block px-2 rotate-90 text-gray-400">&#9001;</div>
+              </button>
+            </div>
           </div>
         </div>
 
+        <!-- 교내 전화번호 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">교내 전화번호
-            <button class="px-2">서울</button>
-            <button class="px-2">다빈치</button>
+          <div class="p-1 border-b">
+            <div class="flex flex-wrap">
+              <p class="p-3 pr-[50%]">교내 전화번호</p>
+              <input type="radio" class="hidden peer/seoul-tel" name="tel" id="seoul-tel" checked>
+              <label for="seoul-tel" class="text-center cursor-pointer pb-2 mx-4 mt-3
+              peer-checked/seoul-tel:border-b-4 peer-checked/seoul-tel:border-blue-900">
+                서울
+              </label>
+        
+              <input type="radio" class="hidden peer/davinci-tel" name="tel" id="davinci-tel">
+              <label for="davinci-tel" class="cursor-pointer pb-2 mt-3 
+              peer-checked/davinci-tel:border-b-4 peer-checked/davinci-tel:border-blue-900">
+                다빈치
+              </label>
+  
+              <!-- 서울 전화번호 -->
+              <div class="border-t pt-1 w-full hidden peer-checked/seoul-tel:block">
+                <div class="mx-2 border rounded-full">
+                  <select class="mx-2 outline-none" name="" id="">
+                    <option value=""> 이름 </option>
+                    <option value=""> 부서 </option>
+                  </select>
+                  <input class="outline-none w-[70%]" type="text" name="" id="input_s" placeholder="">
+                  <button id="s_search" class="w-8 p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1rem" viewBox="0 0 512 512">
+                      <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 
+                      0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 
+                      0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                    </svg>
+                  </button>
+                </div>
+
+              <!-- 검색-->
+                <div class="border-t my-1 pt-2">
+                  <ul class="item flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                    <li>서울</li>
+                    <li class="mr-12">02-820-5114</li>
+                  </ul>
+                  <ul class="item flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                    <li>다빈치</li>
+                    <li class="mr-12">031-670-3114</li>
+                  </ul>
+
+                  <ul class="item hidden flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                    <li>김철수</li>
+                    <li class="mr-12">031-000-0000</li>
+                  </ul>
+                  <ul class="item hidden flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                    <li>박영희</li>
+                    <li class="mr-12">031-111-1111</li>
+                  </ul>
+                  <ul class="item hidden flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                    <li>최영구</li>
+                    <li class="mr-12">031-222-2222</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- 다빈치 전화번호 -->
+              <div class="border-t pt-1 w-full hidden peer-checked/davinci-tel:block">
+                <div class="mx-2 border rounded-full">
+                  <select class="mx-2 outline-none" name="" id="">
+                    <option value=""> 이름 </option>
+                    <option value=""> 부서 </option>
+                  </select>
+                  <input class="outline-none w-[70%]" type="text" name="" id="input_d" placeholder="">
+                  <button id="d_search" class="w-8 p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1rem" viewBox="0 0 512 512">
+                      <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 
+                      0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 
+                      0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                    </svg>
+                  </button>
+                </div>
+
+              <!-- 검색-->
+              <div class="border-t my-1 pt-2">
+                <ul class="item flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                  <li>서울</li>
+                  <li class="mr-12">02-820-5114</li>
+                </ul>
+                <ul class="item flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                  <li>다빈치</li>
+                  <li class="mr-12">031-670-3114</li>
+                </ul>
+
+                <ul class="item hidden flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                  <li>육성재</li>
+                  <li class="mr-12">031-000-0000</li>
+                </ul>
+                <ul class="item hidden flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                  <li>서은광</li>
+                  <li class="mr-12">031-111-1111</li>
+                </ul>
+                <ul class="item hidden flex justify-between mx-4 p-1 hover:bg-emerald-50">
+                  <li>이창섭</li>
+                  <li class="mr-12">031-222-2222</li>
+                </ul>
+              </div>                
+            </div>
+
           </div>
-          내용
-        </div> 
+        </div>
+
+      </div> 
       </section>
 
+      <!-- section 3 -->
       <section class="h-auto max-w-lg">
+
+        <!-- 주요 서비스 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">주요 서비스</div>
+          <div class="p-3 border-b">주요 서비스</div>
           <div class="flex justify-items-center grid grid-cols-3 gap-8 m-6">
             <a href=""><img class="rounded-full" src=".\img\imageView (1).avif" alt="">
               <p class="text-center">E-mail</p>
@@ -505,7 +1265,7 @@
             <a href=""><img class="rounded-full" src=".\img\imageView (3).avif" alt="">
               <p class="text-center">수강신청</p>
             </a>
-            <a href=""><img class="rounded-full" src=".\img\imageView (4).avif" alt="">
+            <a href=""><img class="rounded-full ml-3" src=".\img\imageView (4).avif" alt="">
               <p class="text-center">Rainbow Sys.</p>
             </a>
             <a href=""><img class="rounded-full" src=".\img\imageView (5).avif" alt="">
@@ -517,18 +1277,281 @@
           </div>
         </div>
 
+        <!-- 주요 기관 -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">주요 기관</div>
-          내용
+          <div class="p-3 border-b">주요 기관</div>
+          <div class="flex justify-items-center grid grid-cols-3 gap-8 m-6">
+            <a href=""><img class="rounded-full" src=".\img\imageView_inst1.avif" alt="">
+              <p class="text-center">수강신청</p>
+            </a>
+            <a href=""><img class="rounded-full" src=".\img\imageView_inst2.avif" alt="">
+              <p class="text-center">입학처</p>
+            </a>
+            <a href=""><img class="rounded-full" src=".\img\imageView_inst3.avif" alt="">
+              <p class="text-center">학술정보원</p>
+            </a>
+            <a href=""><img class="rounded-full ml-5" src=".\img\imageView_inst4.avif" alt="">
+              <p class="text-center">교수학습개발센터</p>
+            </a>
+            <a href=""><img class="rounded-full ml-2" src=".\img\imageView_inst5.avif" alt="">
+              <p class="text-center">산학협력단</p>
+            </a>
+            <a href=""><img class="rounded-full ml-5" src=".\img\imageView_inst6.avif" alt="">
+            <p class="text-center">대외협력처(발전기금)</p>
+            </a>
+          </div>
         </div>
+
+        <!-- CAU Notice -->
         <div class="border mb-2 bg-white">
-          <div class="p-1 border-b">CAU Notice</div>
-          내용
+          <div class="p-3 border-b">CAU Notice</div>
+          <div class="flex flex-wrap">
+            <input type="radio" class="hidden peer/entire" name="notice" id="entire" checked>
+            <label for="entire" class="text-center w-11 xl:w-8 cursor-pointer pb-2 mx-2 ml-4 mt-4
+            peer-checked/entire:border-b-4 peer-checked/entire:border-blue-900">
+              전체
+            </label>
+      
+            <input type="radio" class="hidden peer/school" name="notice" id="school">
+            <label for="school" class="text-center w-10 xl:w-8 cursor-pointer pb-2 mx-2 mt-4 
+            peer-checked/school:border-b-4 peer-checked/school:border-blue-900">
+              학사
+            </label>
+
+            <input type="radio" class="hidden peer/exchange" name="notice" id="exchange">
+            <label for="exchange" class="text-center w-13 cursor-pointer pb-2 mx-2 mt-4
+            peer-checked/exchange:border-b-4 peer-checked/exchange:border-blue-900">
+              학점교류
+            </label>
+      
+            <input type="radio" class="hidden peer/recruit" name="notice" id="recruit">
+            <label for="recruit" class="text-center w-10 xl:w-8 cursor-pointer pb-2 mx-2 mt-4 
+            peer-checked/recruit:border-b-4 peer-checked/recruit:border-blue-900">
+              모집
+            </label>
+
+            <input type="radio" class="hidden peer/scholarship" name="notice" id="scholarship">
+            <label for="scholarship" class="text-center w-10 xl:w-8 cursor-pointer pb-2 mx-2 mt-4
+            peer-checked/scholarship:border-b-4 peer-checked/scholarship:border-blue-900">
+              장학
+            </label>
+      
+            <input type="radio" class="hidden peer/event" name="notice" id="event">
+            <label for="event" class="text-center w-10 xl:w-8 cursor-pointer pb-2 mx-2 mt-4 
+            peer-checked/event:border-b-4 peer-checked/event:border-blue-900">
+              행사
+            </label>
+
+            <input type="radio" class="hidden peer/common" name="notice" id="common">
+            <label for="common" class="text-center w-10 xl:w-8 cursor-pointer pb-2 mx-2 mt-4 
+            peer-checked/common:border-b-4 peer-checked/common:border-blue-900">
+              일반
+            </label>
+            
+
+            <!-- 전체 -->
+            <div class="border-t p-4 w-full hidden peer-checked/entire:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023학년도 2학기 직무 아카데미</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-10</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [서울]불꽃축제 기간 옥상 통제 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-10</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]청년멘토링 토크콘서트</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-10</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2023 정동야행 자원봉사자 모집</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-10</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]추천채용[EK그룹]</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-10</p></div>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- 학사 -->
+            <div class="border-t p-4 w-full hidden peer-checked/school:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합][주전공] 교직과정 이수예정자 신청 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]백분위 환산점수(GPA) 개정 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023학년도 1학기 강의평가 우수 전임교원 선정 결과 공개</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2학기 재학생 정규등록 및 분할납부 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023학년도 2학기 학부 수강과목 취소 및 수강신청 내역 확인 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 학점교류 -->
+            <div class="border-t p-4 w-full hidden peer-checked/exchange:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2 차세대반도체학과 학점교류 개설교과목 및 학점교류 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2학기 대구대학교 교류 수학 신청 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2학기 숭실대학교 교류수학 신청 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2 강원대학교 교류 수학 신청 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023학년도 2학기 포항공과대학교 학점교류 신청안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 모집 -->
+            <div class="border-t p-4 w-full hidden peer-checked/recruit:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023학년도 2학기 직무 아카데미</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2023 정동야행 자원봉사자 모집</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]서울형 뉴딜일자리 서울에너지닥터 참여자 모집</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합][LINC3.0] 썸썸 BLUE in 경남 학생 모집 공고</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합][HK+ 인문콘텐츠연구소] (등재) 『인공지능인문학연구』 제 15권 원고 모집 (11.10 마감/12.31 발간)</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 장학 -->
+            <div class="border-t p-4 w-full hidden peer-checked/scholarship:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2023-2학기 성남시 다자녀가구 대학생(셋째 이상) 등록금 지원</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2024년 STX 장학재단 장학생 선발요강</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2023년도 하반기 신안군장학재단 장학생 선발 공고</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2023년 하반기 은평구민 장학생 선발계획 공고</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2학기 고졸 후학습자 장학사업(희망사다리)</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-20</p></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 행사 -->
+            <div class="border-t p-4 w-full hidden peer-checked/event:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]청년멘토링 토크콘서트</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-06</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2024 강원 동계청소년올림픽 'G-100 기념 행사</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-05</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2023 코리아헤럴드 HIT포럼 '우주와 우리: 경계의 저편(Beyond Earth)'</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-04</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부][한국과학기술정보연구원] 2023 슬기로운 포닥생활 (미국, 영국, 스위스편)</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-27</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]서울미래학습포럼 '미래사회 3D(Data, Digital, Design) 학습비전'</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-21</p></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 일반 -->
+            <div class="border-t p-4 w-full hidden peer-checked/common:block">
+              <ul>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [서울]불꽃축제 기간 옥상 통제 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-06</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [다빈치]다빈치캠퍼스 버스승차장 교체공사 관련 교통통제 및 교내 버스 임시정류장 운영 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-05</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [외부]2024 G20 Youth Summit (Y20) 참가 대표단 선발 공고(영문에세이 경진대회)</a>
+                  <div class="inline-block text-gray-400"><p>2023-10-04</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합][교수학습개발센터] 비교과 프로그램 아이디어 공모전</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-21</p></div>
+                </li>
+                <li class="flex py-1 justify-between">
+                  <a class="ellipis" href=""><p>&#8226;</p> [통합]2023-2학기 재학생 분할등록(3차) 안내</a>
+                  <div class="inline-block text-gray-400"><p>2023-09-21</p></div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </section>
     </div>
 
   </main>
+
+
+    <!-- FOOTER -->
+    <footer class="absolute right-0 left-0 bg-white border-t text-gray-600 px-12 pb-24 pt-8">
+      <p class="inline-block pr-2 border-r">서울 동작구 흑석로 84</p>
+      <p class="inline-block pr-2 border-r">다빈치 경기도 안성시 대덕면 서동대로 4726</p>
+      <p class="inline-block pr-2 border-r">
+        <a href="#" class="text-blue-700 hover:underline">개인정보처리방침</a>
+      </p>
+      <p class="inline-block">
+        <a href="#" class="hover:underline">도움말</a>
+      </p>
+      <p>ⓒ 2018 Chung-Ang Univ</p>
+    </footer>
+
   <!-- script -->
   <script src="./js/script.js"></script>
 </body>
